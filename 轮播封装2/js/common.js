@@ -1,13 +1,12 @@
-define(['jquery'], function($) {
+(function(){
+
 	function Common(el, opts) {
 		var _this = this;
 		this.opts = $.extend({}, Common.DEFAULTS, opts);
 		this.el = $(el);
-
 		this.len = this.el.find("ul li").length;
 		this.el_ul = this.el.width() * this.len;
 		this.len_w = this.el.find("ul li").width();
-
 		var btn = "<div class='btn'>";
 		this.el.find("ul").css("width", this.el_ul);
 		this.el.find("ul li").css("width", this.el.width());
@@ -60,7 +59,6 @@ define(['jquery'], function($) {
 			this.index = this.len - 1
 		}
 		this._showPics(this.index);
-		console.log(1)
 	}
 	Common.prototype._next = function() {
 		this.index += 1;
@@ -89,8 +87,4 @@ define(['jquery'], function($) {
 			});
 		}
 	});
-
-	return {
-		Common: Common
-	}
-})
+})()
